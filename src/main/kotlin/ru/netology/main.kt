@@ -1,7 +1,7 @@
 package ru.netology
 
 fun main() {
-    val price = 22_000
+    val price = 1_001
     val standardDiscount = 100
     val fivePercentDiscount = (price * 0.05).toInt()
     val regularCustomer = true
