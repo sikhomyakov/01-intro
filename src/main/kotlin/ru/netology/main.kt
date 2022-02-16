@@ -1,19 +1,13 @@
 package ru.netology
 
 fun main() {
-    val price = 1_001
-    val standardDiscount = 100
-    val fivePercentDiscount = (price * 0.05).toInt()
+    val amount = 10001
+    val price = 100
     val regularCustomer = true
 
-    val total = if (price <= 1000) price else if (price in 1001..10_000) price - standardDiscount
-    else if (price > 10_000) price - fivePercentDiscount else price
+    val totalStandardDiscount = (if (amount > 10_000) price * 0.95
+    else if (amount >= 1001 && price <= 10_000) price - 100 else price).toDouble()
+    val total = if (regularCustomer) totalStandardDiscount * 0.99 else totalStandardDiscount
 
-    if (regularCustomer) {
-        val regularCustomerDiscount = total * 0.01
-        val regularCustomerTotal = (total - regularCustomerDiscount).toInt()
-        println("Сумма вашего заказа со скидками: $regularCustomerTotal руб.")
-    } else {
-        println("Сумма вашего заказа со скидками: $total руб.")
-    }
+    println("Сумма вашего заказа со скидками: ${total.toInt()} руб. ${(total * 100).toInt() % 100} коп.")
 }
