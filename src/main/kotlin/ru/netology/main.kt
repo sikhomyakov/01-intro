@@ -1,5 +1,7 @@
 package ru.netology
 
+import kotlin.math.roundToInt
+
 fun main() {
     val amount = 10001
     val price = 100
@@ -9,5 +11,5 @@ fun main() {
     else if (amount >= 1001 && price <= 10_000) price - 100 else price).toDouble()
     val total = if (regularCustomer) totalStandardDiscount * 0.99 else totalStandardDiscount
 
-    println("Сумма вашего заказа со скидками: ${total.toInt()} руб. ${(total * 100).toInt() % 100} коп.")
+    println("Сумма вашего заказа со скидками: ${total.toInt()} руб. ${(total * 100).roundToInt() % 100} коп.")
 }
